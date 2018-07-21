@@ -1,0 +1,274 @@
+@import 'reset';
+
+html {
+  font-size: 16px;
+}
+
+/*
+.switch {
+  display: block;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  padding: $default-padding;
+  cursor: pointer;
+  z-index: $z-switch;
+  background-color: $main-color0;
+  color: $main-color2;
+  border-radius: $border-radius;
+  box-shadow: 0 0 5px 0 rgba($main-color2, 0.7);
+
+  &::after {
+    padding: $default-padding;
+  }
+}
+
+.switchCore {
+  display: none;
+
+  &:checked ~ .switch::after {
+    content: 'Show evil version';
+  }
+
+  &:checked ~ .elmApp-evil {
+    display: none;
+  }
+
+  &:not(:checked) ~ .switch::after {
+    content: 'Show legal version';
+  }
+
+  &:not(:checked) ~ .elmApp-legal {
+    display: none;
+  }
+}
+*/
+
+.elmApp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($sub-color2, 0.2);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &-NormalGoat {
+    background-position: top left;
+    background-image: url('img/normal-goat.jpg');
+  }
+
+  &-SpecialGoat {
+    animation: 2s zoomIn 1;
+    background-position: right bottom;
+    background-image: url('img/special-goat.jpg');
+  }
+}
+
+.life {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  border-radius: $border-radius;
+  border: solid 2px $accent-color;
+  height: 1.4em;
+  width: 50%;
+  box-shadow: 0 0 5px 0 rgba($accent-background-color, 0.7);
+  background-color: rgba($main-color2, 0.6);
+
+  &_icon {
+    position: absolute;
+    top: -0.5em;
+    right: -1em;
+    height: 2em;
+    width: 2em;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url('./img/love.svg');
+    animation: 1s pulse infinite;
+  }
+
+  &_bar {
+    height: 100%;
+    width: 100%;
+    background-color: rgba($accent-color, 0.6);
+
+    &-0 {
+      width: 0%;
+    }
+
+    &-1 {
+      width: 20%;
+    }
+
+    &-2 {
+      width: 40%;
+    }
+
+    &-3 {
+      width: 60%;
+    }
+
+    &-4 {
+      width: 80%;
+    }
+  }
+
+  &_bar-0,
+  &_bar-1,
+  &_bar-2,
+  &_bar-3,
+  &_bar-4 {
+    & ~ .life_icon {
+      display: none;
+      animation: none;
+    }
+  }
+}
+
+.talk {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  right: 1em;
+  min-height: 10em;
+  border-radius: $border-radius;
+
+  &-NormalGoat {
+    background-color: rgba($main-color1, 0.6);
+  }
+
+  &-SpecialGoat {
+    background-color: rgba($accent-background-color, 0.6);
+  }
+
+  &_body {
+    padding: $default-padding;
+    padding-top: 3em;
+    padding-bottom: 2em;
+    display: flex;
+
+    &_text {
+      padding: $default-padding;
+      color: $text-color;
+      font-size: 1.4em;
+
+      &-main {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: $default-padding;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+
+  &_text {
+    padding: $default-padding;
+
+    &-startUp {
+      height: 100%;
+      font-size: 5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $main-color0;
+      animation: 1.4s pulse 3;
+    }
+
+    &-next {
+      animation: 2s flash 1;
+      position: absolute;
+      bottom: 1em;
+      right: 1em;
+      color: $main-color0;
+    }
+  }
+}
+
+.autoButton {
+  position: absolute;
+  top: $double-padding;
+  right: $double-padding;
+  padding: $default-padding;
+  background-color: $main-color0;
+  color: $main-color2;
+  border-radius: $border-radius;
+  box-shadow: 0 0 5px 0 rgba($main-color0, 0.7);
+  cursor: pointer;
+  z-index: $z-auto;
+
+  &[aria-checked="true"] {
+    background-color: $main-color1;
+  }
+}
+
+/* ====================
+ * Copied from Animate.css
+ * https://github.com/daneden/animate.css/blob/master/animate.css
+ * ==================== */
+
+@keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
