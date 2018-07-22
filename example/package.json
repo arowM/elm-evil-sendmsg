@@ -5,7 +5,7 @@
   "author": "Kadzuya Okamoto",
   "scripts": {
     "build": "npm run clean && webpack",
-    "clean": "rimraf ../doc",
+    "clean": "rimraf ../docs",
     "elm-analyse": "elm-analyse",
     "elm-format": "elm-format",
     "elm-make": "elm-make",

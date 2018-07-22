@@ -27,7 +27,7 @@ const entry =
 const commonConfig = {
 
   output: {
-    path: path.resolve(__dirname, '../doc/'),
+    path: path.resolve(__dirname, '../docs/'),
     filename: '[name].js',
     publicPath: ENV.publicPath,
   },
