@@ -212,11 +212,11 @@ if (TARGET_ENV === 'production') {
       }),
 
       // Minify & mangle JS/CSS
-      new webpack.optimize.UglifyJsPlugin({
-          minimize:   true,
-          compressor: { warnings: false }
-          // mangle:  true
-      }),
+      // new webpack.optimize.UglifyJsPlugin({
+      //     minimize:   true,
+      //     compressor: { warnings: false }
+      //     // mangle:  true
+      // }),
     ]
   });
 }
