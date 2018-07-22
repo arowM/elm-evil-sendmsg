@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "An evil library for Elm using bad hack to issue Msg on rendering a DOM.",
-    "repository": "https://github.com/arowM/elm-on-render.git",
+    "repository": "https://github.com/arowM/elm-evil-sendmsg.git",
     "license": "MIT",
     "source-directories": [
         "src"
